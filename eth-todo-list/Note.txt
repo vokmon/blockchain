@@ -1,0 +1,22 @@
+http://www.dappuniversity.com/articles/blockchain-app-tutorial#how
+
+Run Truffle
+..\node_modules\.bin\truffle init  version
+
+Note: needs to run in an empty folder
+..\node_modules\.bin\truffle init
+
+contracts directory: this is where all smart contacts live. 
+We already have a Migration contract that handles our migrations to the blockchain.
+
+migrations directory: this is where all of the migration files live. 
+These migrations are similar to other web development frameworks that require migrations 
+to change the state of a database. Whenever we deploy smart contracts to the blockchain, 
+we are updating the blockchain's state, and therefore need a migration.
+
+node_modules directory: this is the home of all of our Node dependencies we just installed.
+
+test directory: this is where we'll write our tests for our smart contract.
+
+truffle-config.js file: this is the main configuration file for our Truffle project, 
+where we'll handle things like network configuration.
