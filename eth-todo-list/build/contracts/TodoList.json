@@ -1,21 +1,50 @@
 {
   "contractName": "TodoList",
-  "abi": [],
-  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol\":\"TodoList\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol\":{\"keccak256\":\"0xa3b6a9a52d432b1a320b3b8552982118025c74693066957d697dfdf86e39f610\",\"urls\":[\"bzzr://1f9eba1fe0c7d1d628293c39dbe47606fcfb960711143296bb80f5dfa299a840\"]}},\"version\":1}",
-  "bytecode": "0x608060405260008055348015601357600080fd5b5060358060216000396000f3fe6080604052600080fdfea165627a7a7230582022c0a391493792e840a0df127a3e9febe17413593b2ad93c5c275fc4d3d875a60029",
-  "deployedBytecode": "0x6080604052600080fdfea165627a7a7230582022c0a391493792e840a0df127a3e9febe17413593b2ad93c5c275fc4d3d875a60029",
-  "sourceMap": "27:45:1:-;;;67:1;50:18;;27:45;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:45:1;;;;;;;",
-  "deployedSourceMap": "27:45:1:-;;;;;",
-  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract TodoList {\r\n  uint taskCount = 0;\r\n}",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "taskCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "getTaskCount",
+      "outputs": [
+        {
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "metadata": "{\"compiler\":{\"version\":\"0.5.8+commit.23d335f2\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"constant\":true,\"inputs\":[],\"name\":\"taskCount\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"},{\"constant\":true,\"inputs\":[],\"name\":\"getTaskCount\",\"outputs\":[{\"name\":\"\",\"type\":\"uint256\"}],\"payable\":false,\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"methods\":{}},\"userdoc\":{\"methods\":{}}},\"settings\":{\"compilationTarget\":{\"/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol\":\"TodoList\"},\"evmVersion\":\"petersburg\",\"libraries\":{},\"optimizer\":{\"enabled\":false,\"runs\":200},\"remappings\":[]},\"sources\":{\"/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol\":{\"keccak256\":\"0x5b9d412fc704cb1e188bf5bc1a1dd78821baaab32d27c727de8031409566e0fc\",\"urls\":[\"bzzr://b52525c6e14572a884eed5b4ea219dbd3dcbc5313337757871131977f9837f05\"]}},\"version\":1}",
+  "bytecode": "0x6080604052600160005534801561001557600080fd5b5060aa806100246000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c8063b6cb58a5146037578063c17a340e146053575b600080fd5b603d606f565b6040518082815260200191505060405180910390f35b60596075565b6040518082815260200191505060405180910390f35b60005481565b6000805490509056fea165627a7a723058205e190cb66e3ee30a6f0a1f6c761c59b2026bbd3afb5f9dcb2e3f2da72136ebe50029",
+  "deployedBytecode": "0x6080604052348015600f57600080fd5b506004361060325760003560e01c8063b6cb58a5146037578063c17a340e146053575b600080fd5b603d606f565b6040518082815260200191505060405180910390f35b60596075565b6040518082815260200191505060405180910390f35b60005481565b6000805490509056fea165627a7a723058205e190cb66e3ee30a6f0a1f6c761c59b2026bbd3afb5f9dcb2e3f2da72136ebe50029",
+  "sourceMap": "27:137:1:-;;;74:1;50:25;;27:137;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:137:1;;;;;;;",
+  "deployedSourceMap": "27:137:1:-;;;;8:9:-1;5:2;;;30:1;27;20:12;5:2;27:137:1;;;;;;;;;;;;;;;;;;;;;;;;50:25;;;:::i;:::-;;;;;;;;;;;;;;;;;;;82:79;;;:::i;:::-;;;;;;;;;;;;;;;;;;;50:25;;;;:::o;82:79::-;126:4;146:9;;139:16;;82:79;:::o",
+  "source": "pragma solidity ^0.5.0;\r\n\r\ncontract TodoList {\r\n  uint public taskCount = 1;\r\n\r\n  function getTaskCount() public view returns(uint) {\r\n    return taskCount;\r\n  }\r\n}",
   "sourcePath": "F:/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol",
   "ast": {
     "absolutePath": "/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol",
     "exportedSymbols": {
       "TodoList": [
-        62
+        70
       ]
     },
-    "id": 63,
+    "id": 71,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -35,9 +64,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 62,
+        "id": 70,
         "linearizedBaseContracts": [
-          62
+          70
         ],
         "name": "TodoList",
         "nodeType": "ContractDefinition",
@@ -47,8 +76,8 @@
             "id": 61,
             "name": "taskCount",
             "nodeType": "VariableDeclaration",
-            "scope": 62,
-            "src": "50:18:1",
+            "scope": 70,
+            "src": "50:25:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -67,7 +96,7 @@
             },
             "value": {
               "argumentTypes": null,
-              "hexValue": "30",
+              "hexValue": "31",
               "id": 60,
               "isConstant": false,
               "isLValue": false,
@@ -75,31 +104,110 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "67:1:1",
+              "src": "74:1:1",
               "subdenomination": null,
               "typeDescriptions": {
-                "typeIdentifier": "t_rational_0_by_1",
-                "typeString": "int_const 0"
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
               },
-              "value": "0"
+              "value": "1"
             },
-            "visibility": "internal"
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "132:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 66,
+                    "name": "taskCount",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 61,
+                    "src": "146:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 65,
+                  "id": 67,
+                  "nodeType": "Return",
+                  "src": "139:16:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTaskCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "103:2:1"
+            },
+            "returnParameters": {
+              "id": 65,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "126:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 63,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "125:6:1"
+            },
+            "scope": 70,
+            "src": "82:79:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
           }
         ],
-        "scope": 63,
-        "src": "27:45:1"
+        "scope": 71,
+        "src": "27:137:1"
       }
     ],
-    "src": "0:72:1"
+    "src": "0:164:1"
   },
   "legacyAST": {
     "absolutePath": "/F/projects/blockchain/blockchain/eth-todo-list/contracts/TodoList.sol",
     "exportedSymbols": {
       "TodoList": [
-        62
+        70
       ]
     },
-    "id": 63,
+    "id": 71,
     "nodeType": "SourceUnit",
     "nodes": [
       {
@@ -119,9 +227,9 @@
         "contractKind": "contract",
         "documentation": null,
         "fullyImplemented": true,
-        "id": 62,
+        "id": 70,
         "linearizedBaseContracts": [
-          62
+          70
         ],
         "name": "TodoList",
         "nodeType": "ContractDefinition",
@@ -131,8 +239,8 @@
             "id": 61,
             "name": "taskCount",
             "nodeType": "VariableDeclaration",
-            "scope": 62,
-            "src": "50:18:1",
+            "scope": 70,
+            "src": "50:25:1",
             "stateVariable": true,
             "storageLocation": "default",
             "typeDescriptions": {
@@ -151,7 +259,7 @@
             },
             "value": {
               "argumentTypes": null,
-              "hexValue": "30",
+              "hexValue": "31",
               "id": 60,
               "isConstant": false,
               "isLValue": false,
@@ -159,30 +267,116 @@
               "kind": "number",
               "lValueRequested": false,
               "nodeType": "Literal",
-              "src": "67:1:1",
+              "src": "74:1:1",
               "subdenomination": null,
               "typeDescriptions": {
-                "typeIdentifier": "t_rational_0_by_1",
-                "typeString": "int_const 0"
+                "typeIdentifier": "t_rational_1_by_1",
+                "typeString": "int_const 1"
               },
-              "value": "0"
+              "value": "1"
             },
-            "visibility": "internal"
+            "visibility": "public"
+          },
+          {
+            "body": {
+              "id": 68,
+              "nodeType": "Block",
+              "src": "132:29:1",
+              "statements": [
+                {
+                  "expression": {
+                    "argumentTypes": null,
+                    "id": 66,
+                    "name": "taskCount",
+                    "nodeType": "Identifier",
+                    "overloadedDeclarations": [],
+                    "referencedDeclaration": 61,
+                    "src": "146:9:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "functionReturnParameters": 65,
+                  "id": 67,
+                  "nodeType": "Return",
+                  "src": "139:16:1"
+                }
+              ]
+            },
+            "documentation": null,
+            "id": 69,
+            "implemented": true,
+            "kind": "function",
+            "modifiers": [],
+            "name": "getTaskCount",
+            "nodeType": "FunctionDefinition",
+            "parameters": {
+              "id": 62,
+              "nodeType": "ParameterList",
+              "parameters": [],
+              "src": "103:2:1"
+            },
+            "returnParameters": {
+              "id": 65,
+              "nodeType": "ParameterList",
+              "parameters": [
+                {
+                  "constant": false,
+                  "id": 64,
+                  "name": "",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 69,
+                  "src": "126:4:1",
+                  "stateVariable": false,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 63,
+                    "name": "uint",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "126:4:1",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": null,
+                  "visibility": "internal"
+                }
+              ],
+              "src": "125:6:1"
+            },
+            "scope": 70,
+            "src": "82:79:1",
+            "stateMutability": "view",
+            "superFunction": null,
+            "visibility": "public"
           }
         ],
-        "scope": 63,
-        "src": "27:45:1"
+        "scope": 71,
+        "src": "27:137:1"
       }
     ],
-    "src": "0:72:1"
+    "src": "0:164:1"
   },
   "compiler": {
     "name": "solc",
     "version": "0.5.8+commit.23d335f2.Emscripten.clang"
   },
-  "networks": {},
+  "networks": {
+    "5777": {
+      "events": {},
+      "links": {},
+      "address": "0x2Fda8f281a5ac7024cf110BBA9d646146ABf21AB",
+      "transactionHash": "0x628ee929102141625b045966bf54c453d5a4360512759f61d6eea3df6d023e03"
+    }
+  },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-04T13:27:25.253Z",
+  "updatedAt": "2019-06-04T14:01:20.794Z",
   "devdoc": {
     "methods": {}
   },

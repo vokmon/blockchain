@@ -44,3 +44,14 @@ Notice that we number all of our files inside the migrations directory with numb
   create 2_deploy_contracts.js --> update it
   ..\node_modules\.bin\truffle migrate
 
+
+To deploy
+..\node_modules\.bin\truffle console
+inside the console
+todoList = await TodoList.deployed()
+todoList.address
+taskCount = await todoList.taskCount() --> result is <BN: 0> (big number 0)
+
+
+..\node_modules\.bin\truffle compile
+..\node_modules\.bin\truffle migrate
