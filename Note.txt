@@ -1,0 +1,22 @@
+Dependency
+https://truffleframework.com/ganache
+node
+npm install truffle
+Metamask Ethereum Wallet chrome extension
+
+Ganache
+Run Ganache from start menu to mimic the behavior of a public blockchain.
+It will allow you to deploy smart contracts, develop applications, and run tests.
+
+Truffle framework suite
+provides a suite of tools for developing Ethereum smart contacts with the Solidity programming language.
+Smart Contract Management - write smart contracts with the Solidity programming language and compile them down to bytecode that be run on the Ethereum Virtal Machine (EVM).
+Automated Testing - write tests against your smart contracts to ensure that they behave the way you want them to. These tests can be written in JavaScript or Solidity, and can be run against any network configured by Truffle, including public blockchain networks.
+Deployment & Migrations - write scripts to migrate and deploy smart contracts to any public Ethereum blockchain network.
+Network Management - connect to any public Ethereum blockchain network, as well as any personal blockchain network you might use for development purposes.
+Development Console - interact with smart contracts inside a JavaScript runtime environment with the Truffle Console. You can connect to any blockchain network that you've specified within your network configuration to do this.
+Script Runner - write custom scripts that can run against a public blockchain network with JavaScript. You can write any arbitrary code inside this file and run it within your project.
+Client Side Development - configure your truffle project to host client side applications that talk to your smart contracts deployed to the blockchain.
+
+Run Truffle
+node_modules\.bin\truffle version
