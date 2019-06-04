@@ -6,6 +6,9 @@ Run Truffle
 Note: needs to run in an empty folder
 ..\node_modules\.bin\truffle init
 
+Compile
+..\node_modules\.bin\truffle compile
+
 contracts directory: this is where all smart contacts live. 
 We already have a Migration contract that handles our migrations to the blockchain.
 
@@ -20,3 +23,24 @@ test directory: this is where we'll write our tests for our smart contract.
 
 truffle-config.js file: this is the main configuration file for our Truffle project, 
 where we'll handle things like network configuration.
+
+After running ..\node_modules\.bin\truffle compile
+there will be ./build/contracts/TodoList.json
+smart contract ABI file, which stands for "Abstract Binary Interface"
+
+It contains the compiled bytecode version of the Solidity smart 
+contract code that can be run on a the Ethereum Virtual Machine (EVM), i.e., an Ethereum Node.
+
+It contains a JSON representation of the smart contract functions that can be
+ exposed to external clients, like client-side JavaScript applications.
+
+
+Update config file in
+ config truffle-config.js
+
+create a migration script inside the migrations directory to deploy the smart contract to the personal blockchain network.
+whenever we permanently change it, we must migrate it from one state to another. This is very similar to a database migration
+Notice that we number all of our files inside the migrations directory with numbers so that Truffle knows which order to execute them in. 
+  create 2_deploy_contracts.js --> update it
+  ..\node_modules\.bin\truffle migrate
+
