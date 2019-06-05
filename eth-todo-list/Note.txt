@@ -64,3 +64,9 @@ Truffle provides a shortcut to assist with this.
 ..\node_modules\.bin\truffle migrate --reset
 todoList = await TodoList.deployed()
 task = await todoList.tasks(1)
+
+
+Of the front end
+use "lite-server" to serve all of the project files for the client side.
+1. expose all the files in the src and build/contracts directories to the root of our web server
+2. adds an alias for any files in the node_modules directory to appear in the vendor
