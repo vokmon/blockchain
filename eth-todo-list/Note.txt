@@ -55,3 +55,12 @@ taskCount = await todoList.taskCount() --> result is <BN: 0> (big number 0)
 
 ..\node_modules\.bin\truffle compile
 ..\node_modules\.bin\truffle migrate
+
+
+smart contract code is immutable! It cannot change. 
+Therefore, we must create a new smart contract any time we make code changes.
+Truffle provides a shortcut to assist with this.
+
+..\node_modules\.bin\truffle migrate --reset
+todoList = await TodoList.deployed()
+task = await todoList.tasks(1)
