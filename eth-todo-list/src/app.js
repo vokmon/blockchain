@@ -42,6 +42,12 @@ App = {
     else {
       console.log('Non-Ethereum browser detected. You should consider trying MetaMask!')
     }
+
+    // web3 = new Web3(new Web3.providers.HttpProvider("http://localhost:8545"))
+    // var account;
+    // web3.eth.getAccounts().then((f) => {
+    // account = f[0];
+    // })
   },
 
   loadAccount: async () => {
@@ -130,7 +136,7 @@ App = {
     await App.todoList.toggleCompleted(taskId)
     window.location.reload()
   },
-  
+
   setLoading: (boolean) => {
     App.loading = boolean
     const loader = $('#loader')
