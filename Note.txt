@@ -20,3 +20,12 @@ Client Side Development - configure your truffle project to host client side app
 
 Run Truffle
 node_modules\.bin\truffle version
+
+https://solidity.readthedocs.io/en/develop/contracts.html
+public - all can access
+external - Cannot be accessed internally, only externally
+internal - only this contract and contracts deriving from it can access
+private - can be accessed only from this contract
+
+View This is generally the replacement for constant. It indicates that the function will not alter the storage state in any way.
+Pure This is even more restrictive, indicating that it won't even read the storage state.
