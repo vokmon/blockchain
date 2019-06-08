@@ -13,7 +13,9 @@ contract Election {
   // Read/write Candidates
   mapping (uint => Candidate) public candidates;
   // Store Candidates Count
-  uint public candidateCount;
+  uint public candidatesCount;
+
+  mapping (address => bool) public voters;
 
   //constructor
   constructor() public {
@@ -22,7 +24,21 @@ contract Election {
   }
 
   function addCandidate(string memory _name) private {
-    candidateCount++;
-    candidates[candidateCount] = Candidate(candidateCount, _name, 0);
+    candidatesCount++;
+    candidates[candidatesCount] = Candidate(candidatesCount, _name, 0);
+  }
+
+  function vote(uint _candidateId) public {
+    //require that they haven't voted before
+    require(!voters[msg.sender], 'You have already voted!');
+
+    //require a valid candidate
+    require(_candidateId > 0 && _candidateId <= candidatesCount, 'Invalid candidate id!');
+
+    // record that voter has voted
+    voters[msg.sender] = true;
+
+    // update candidate vote Count
+    candidates[_candidateId].voteCount ++;
   }
 }

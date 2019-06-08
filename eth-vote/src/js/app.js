@@ -70,7 +70,7 @@ App = {
     // Load contract data
     App.contracts.Election.deployed().then(function(instance) {
       electionInstance = instance;
-      return electionInstance.candidateCount();
+      return electionInstance.candidatesCount();
     }).then(function(candidatesCount) {
       var candidatesResults = $("#candidatesResults");
       candidatesResults.empty();
@@ -84,6 +84,12 @@ App = {
           // Render candidate Result
           var candidateTemplate = "<tr><th>" + id + "</th><td>" + name + "</td><td>" + voteCount + "</td></tr>"
           candidatesResults.append(candidateTemplate);
+
+          // Render candidate ballot option
+          var candidateOption = document.createElement('option');
+          candidateOption.value = id;
+          candidateOption.innerHTML = name;
+          candidatesSelect.append(candidateOption);
         });
       }
 
@@ -91,6 +97,18 @@ App = {
       content.show();
     }).catch(function(error) {
       console.warn(error);
+    });
+  },
+
+  castVote: function() {
+    var candidateId = $('#candidatesSelect').val();
+    App.contracts.Election.deployed().then(function(instance) {
+      return instance.vote(candidateId, { from: App.account });
+    }).then(function(result) {
+      // Wait for votes to update
+      location.reload();
+    }).catch(function(err) {
+      console.error(err);
     });
   }
 };
