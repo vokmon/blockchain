@@ -1,3 +1,4 @@
+export const URL = 'http://localhost:7545';
 export const TODO_LIST_ADDRESS = '0x7E890A2159b1E0276BAeac1256E877070e638b13';
 export const TODO_LIST_ABI = [
   {

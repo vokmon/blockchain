@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import Web3 from 'web3';
-import { TODO_LIST_ABI, TODO_LIST_ADDRESS } from './config'
+import { TODO_LIST_ABI, TODO_LIST_ADDRESS, URL } from './config'
 class App extends Component {
 
   constructor(props) {
@@ -14,8 +14,7 @@ class App extends Component {
   }
 
   async loadBlockchainData() {
-    const address = 'http://localhost:7545';
-    const web3 = new Web3(new Web3.providers.HttpProvider(address));
+    const web3 = new Web3(new Web3.providers.HttpProvider(URL));
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getNetworkType();
     this.setState( {account: accounts[0], network});
@@ -57,13 +56,13 @@ class App extends Component {
             <ul id="taskList" className="list-unstyled">
               { this.state.tasks.map((task, key) => {
                 return(
-                  <div className="taskTemplate" className="checkbox" key={key}>
+                  <div className="taskTemplate" className='checkbox' key={key}>
                     <label>
                       <input type="checkbox" />
                       <span className="content">{task.content}</span>
                     </label>
                   </div>
-                )
+                );
               })}
             </ul>
             <ul id="completedTaskList" className="list-unstyled">
