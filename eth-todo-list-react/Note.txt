@@ -1,3 +1,36 @@
 ..\node_modules\.bin\truffle compile
 ..\node_modules\.bin\truffle test
 ..\node_modules\.bin\truffle migrate --reset
+
+Note
+keep the smart contracts code and client in the same project for further study.
+Practically, these 2 are separated.
+The client needs to know ABI
+
+In this case, we will create a config.js inside src and paste the ABI information to it.
+We also needs to know the contract address.
+The contract address can be found when the contract is deployed (truffle migrate --reset)
+
+Example is
+2_deploy_contracts.js
+=====================
+
+   Deploying 'TodoList'
+   --------------------
+   > transaction hash:    0xce0c48aadd57ad029fe57117ecbc5d71204afa898c1dcfe20e78eedc465a73cc
+   > Blocks: 0            Seconds: 0
+   > contract address:    0x7E890A2159b1E0276BAeac1256E877070e638b13
+   > block number:        15
+   > block timestamp:     1560064161
+   > account:             0x6Ad60BfA3fCab3AAc9645c7Edc7B6f10dB6869fc
+   > balance:             99.93751326
+   > gas used:            627971
+   > gas price:           20 gwei
+   > value sent:          0 ETH
+   > total cost:          0.01255942 ETH
+
+
+   > Saving migration to chain.
+   > Saving artifacts
+   -------------------------------------
+   > Total cost:          0.01255942 ETH
