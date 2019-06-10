@@ -11,10 +11,14 @@ class App extends Component {
   }
 
   componentWillMount() {
-    this.loadBlockchainData();
+    this.initAndLoad();
   }
 
-  async loadBlockchainData() {
+  async initAndLoad() {
+    await this.initTodoList();
+    await this.loadBlockchainData();
+  }
+  async initTodoList() {
     this.setState({loading: true});
     const web3 = new Web3(new Web3.providers.HttpProvider(URL));
     const accounts = await web3.eth.getAccounts();
@@ -23,15 +27,19 @@ class App extends Component {
 
     const todoList = new web3.eth.Contract(TODO_LIST_ABI, TODO_LIST_ADDRESS);
     this.setState({ todoList });
-    const taskCount = await todoList.methods.taskCount().call()
+  }
+
+  async loadBlockchainData() {
+    this.setState({loading: true});
+    const taskCount = await this.state.todoList.methods.taskCount().call();
     this.setState({ taskCount })
+    const tasks = [];
     for (var i = 1; i <= taskCount; i++) {
-      const task = await todoList.methods.tasks(i).call()
-      this.setState({
-        tasks: [...this.state.tasks, task]
-      })
+      const task = await this.state.todoList.methods.tasks(i).call()
+      tasks.push(task);
     }
-    this.setState({loading: false});
+
+    this.setState({loading: false, tasks});
   }
 
   createTask = async (content) => {
@@ -40,14 +48,20 @@ class App extends Component {
 
       // check this 
       // https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send
-      const receipt = await this.state.todoList.methods.createTask(content).send({ from: this.state.account },(error, transactionHash) =>{
-        this.setState({ loading: false });
-        window.location.reload();
+      this.state.todoList.methods.createTask(content).send({ from: this.state.account },(error, transactionHash) =>{
+        this.loadBlockchainData();
       })
       .once('receipt', (receipt) => {
-        this.setState({ loading: false });
-        window.location.reload();
+        this.loadBlockchainData();
       });
+  }
+
+  toggleCompleted = (taskId) => {
+    this.setState({ loading: true });
+    this.state.todoList.methods.toggleCompleted(taskId).send({ from: this.state.account },(error, transactionHash) =>{
+      this.setState({ loading: false });
+      this.loadBlockchainData();
+    });
   }
 
   render() {
@@ -69,7 +83,7 @@ class App extends Component {
             (<div id="loader" className="text-center">
               <p className="text-center">Loading...</p>
             </div>):
-            <TodoList tasks = {this.state.tasks} createTask = {this.createTask} />
+            <TodoList tasks = {this.state.tasks} createTask = {this.createTask} toggleCompleted = {this.toggleCompleted} />
           }
         </main>
       </div>

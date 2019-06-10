@@ -5,12 +5,16 @@ class TodoList extends Component {
 
   onSubmit = (event) => {
     event.preventDefault();
-    console.log(this.task.value);
     this.props.createTask(this.task.value);
   }
   
   populateTask = (input) => {
     this.task = input;
+  }
+
+
+  toggleCompleted = (event) => {
+    this.props.toggleCompleted(event.target.name);
   }
 
   render() {
@@ -25,7 +29,11 @@ class TodoList extends Component {
             return(
               <div className="taskTemplate"  key={key}>
                 <label>
-                  <input type="checkbox" />
+                  <input
+                    type="checkbox"
+                    defaultChecked={task.completed}
+                    name={task.id}  
+                    onClick={this.toggleCompleted} />
                   <span className="content">{task.content}</span>
                 </label>
               </div>
