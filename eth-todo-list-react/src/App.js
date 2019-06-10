@@ -2,11 +2,12 @@ import React, { Component } from 'react';
 import './App.css';
 import Web3 from 'web3';
 import { TODO_LIST_ABI, TODO_LIST_ADDRESS, URL } from './config'
+import TodoList from './TodoList';
 class App extends Component {
 
   constructor(props) {
     super(props)
-    this.state = { account: '', network: '', tasks:[] }
+    this.state = { account: '', network: '', tasks:[], loading: true }
   }
 
   componentWillMount() {
@@ -14,6 +15,7 @@ class App extends Component {
   }
 
   async loadBlockchainData() {
+    this.setState({loading: true});
     const web3 = new Web3(new Web3.providers.HttpProvider(URL));
     const accounts = await web3.eth.getAccounts();
     const network = await web3.eth.net.getNetworkType();
@@ -29,6 +31,23 @@ class App extends Component {
         tasks: [...this.state.tasks, task]
       })
     }
+    this.setState({loading: false});
+  }
+
+  createTask = async (content) => {
+    
+    this.setState({ loading: true });
+
+      // check this 
+      // https://web3js.readthedocs.io/en/1.0/web3-eth-contract.html#methods-mymethod-send
+      const receipt = await this.state.todoList.methods.createTask(content).send({ from: this.state.account },(error, transactionHash) =>{
+        this.setState({ loading: false });
+        window.location.reload();
+      })
+      .once('receipt', (receipt) => {
+        this.setState({ loading: false });
+        window.location.reload();
+      });
   }
 
   render() {
@@ -45,29 +64,13 @@ class App extends Component {
     <div className="container-fluid">
       <div className="row">
         <main role="main" className="col-lg-12 d-flex justify-content-center">
-          <div id="loader" className="text-center">
-            <p className="text-center">Loading...</p>
-          </div>
-          <div id="content">
-            <form>
-              <input id="newTask" type="text" className="form-control" placeholder="Add task..." required />
-              <input type="submit" hidden="" />
-            </form>
-            <ul id="taskList" className="list-unstyled">
-              { this.state.tasks.map((task, key) => {
-                return(
-                  <div className="taskTemplate" className='checkbox' key={key}>
-                    <label>
-                      <input type="checkbox" />
-                      <span className="content">{task.content}</span>
-                    </label>
-                  </div>
-                );
-              })}
-            </ul>
-            <ul id="completedTaskList" className="list-unstyled">
-            </ul>
-          </div>
+          {
+            this.state.loading? 
+            (<div id="loader" className="text-center">
+              <p className="text-center">Loading...</p>
+            </div>):
+            <TodoList tasks = {this.state.tasks} createTask = {this.createTask} />
+          }
         </main>
       </div>
     </div>
