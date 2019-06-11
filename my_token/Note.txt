@@ -4,3 +4,13 @@ Create my token with OpenZeppelin Solidity and Truffle
 npm i openzeppelin-solidity
 
 ..\node_modules\.bin\truffle compile
+..\node_modules\.bin\truffle migrate --reset
+
+..\node_modules\.bin\truffle migrate console
+mtk = await MyToken.deployed()
+mtk.address
+mtk.name()
+mtk.decimals()
+mtk.symbol()
+
+..\node_modules\.bin\truffle test
