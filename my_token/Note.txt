@@ -1,0 +1,4 @@
+Create my token with OpenZeppelin Solidity and Truffle
+
+..\node_modules\.bin\truffle init
+npm i openzeppelin-solidity
