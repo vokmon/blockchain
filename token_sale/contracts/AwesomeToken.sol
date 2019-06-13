@@ -25,5 +25,8 @@ contract AwesomeToken is ERC20, ERC20Detailed {
       super._mint(msg.sender, _initialSupply);
   }
 
+// See implementation in ERC20
+// function balanceOf(address account) public view returns (uint256) {
+// function transfer(address recipient, uint256 amount) public returns (bool) 
 
 }
