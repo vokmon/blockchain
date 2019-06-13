@@ -10,16 +10,20 @@ import 'openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol';
  */
 contract AwesomeToken is ERC20, ERC20Detailed {
 
-  uint256 private _INITIAL_SUPPLY = 1000000;
   string private _TOKEN_NAME = "Awesome Token";
   string private _SYMBOL = "AWT";
   uint8 private _DECIMALS = 18;
 
+  // balance of token, who has token and how much
+  // mapping(address => uint256) public balanceOf;
 
   // Constructor
-  constructor()
+  constructor(uint256 _initialSupply)
     ERC20Detailed(_TOKEN_NAME, _SYMBOL, _DECIMALS)
     public {
-      super._mint(msg.sender, _INITIAL_SUPPLY);
+      // equilavent to balanceOf[msg.sender] = _initialSupply
+      super._mint(msg.sender, _initialSupply);
   }
+
+
 }
