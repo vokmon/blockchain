@@ -50,7 +50,7 @@ contract('AwesomeToken', (accounts) => {
       // assert the event is correctly triggered
       assert.equal(receipt.logs.length, 1, 'triggers one event');
       const log = receipt.logs[0];
-      assert.equal(log.event, 'Transfer', 'should be the "Trnasfer"event');
+      assert.equal(log.event, 'Transfer', 'should be the "Transfer"event');
       assert.equal(log.args.from, adminAddress, 'logs the account the tokens are transferred from');
       assert.equal(log.args.to, toAddress, 'logs the account the tokens are transferred to');
       assert.equal(log.args.value, 250000, 'logs the transfer amount');
@@ -61,6 +61,28 @@ contract('AwesomeToken', (accounts) => {
       const adminBalance = await this.token.balanceOf(adminAddress);
       assert.equal(adminBalance.toNumber(), 750000, 'deducts amount from the sender account');
 
+    });
+
+    it('approves tokens for delegated transfer', async() => {
+      // does not create a transaction without writing a block to the blockchain
+      const success = await this.token.approve.call(accounts[1], 100);
+      assert.equal(success, true, 'it returns true');
+
+
+      const senderAddress = accounts[0];
+      const spenderAddress = accounts[1];
+      const receipt = await this.token.approve(spenderAddress, 100);
+      // assert the event is correctly triggered
+      assert.equal(receipt.logs.length, 1, 'triggers one event');
+      const log = receipt.logs[0];
+      assert.equal(log.event, 'Approval', 'should be the "Approval"event');
+      assert.equal(log.args.owner, senderAddress, 'logs the account the tokens are arthorized by');
+      assert.equal(log.args.spender, spenderAddress, 'logs the account the tokens are authorized to');
+      assert.equal(log.args.value, 100, 'logs the transfer amount');
+
+      // validate
+      const allowance = await this.token.allowance(senderAddress, spenderAddress);
+      assert.equal(allowance.toNumber(), 100, 'stores the allowance for delegated transfer')
     });
   });
 });
