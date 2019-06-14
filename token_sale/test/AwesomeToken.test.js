@@ -84,5 +84,62 @@ contract('AwesomeToken', (accounts) => {
       const allowance = await this.token.allowance(senderAddress, spenderAddress);
       assert.equal(allowance.toNumber(), 100, 'stores the allowance for delegated transfer')
     });
+
+    it('handles delegated token transfers', async() => {
+      const fromAccount = accounts[2];
+      const toAccount = accounts[3];
+      const spendingAccount = accounts[4];
+
+      // Transfer some tokens to fromAccount;
+      await this.token.transfer(fromAccount, 100, {from: accounts[0]});
+
+      // Approve spendingAccount to spend 10 tokens from fromAccount
+      await this.token.approve(spendingAccount, 25, {from: fromAccount});
+      
+      try {
+        // Try transferring something larger than the sender's balance
+        await this.token.transferFrom(fromAccount, toAccount, 9999, {from: spendingAccount});
+        assert.fail;
+      }
+      catch(error) {
+        assert(error.message.indexOf('revert')>=0, 'error message must contain revert');
+      }
+
+      try {
+        // Try transferring something larger than the approved amount
+        await this.token.transferFrom(fromAccount, toAccount, 30, {from: spendingAccount});
+        assert.fail;
+      }
+      catch(error) {
+        assert(error.message.indexOf('revert')>=0, 'error message must contain revert');
+      }
+
+      const success = await this.token.transferFrom.call(fromAccount, toAccount, 10, {from: spendingAccount});
+      assert.equal(success, true, 'transfer from success');
+
+      const receipt = await this.token.transferFrom(fromAccount, toAccount, 10, {from: spendingAccount});
+      // assert the event is correctly triggered
+      assert.equal(receipt.logs.length, 2, 'triggers one event');
+      const log = receipt.logs[0];
+      assert.equal(log.event, 'Transfer', 'should be the "Transfer"event');
+      assert.equal(log.args.from, fromAccount, 'logs the account the tokens are transferred from');
+      assert.equal(log.args.to, toAccount, 'logs the account the tokens are transferred to');
+      assert.equal(log.args.value.toNumber(), 10, 'logs the transfer amount');
+
+      const log2 = receipt.logs[1];
+      assert.equal(log2.event, 'Approval', 'should be the "Approval"event');
+      assert.equal(log2.args.owner, fromAccount, 'logs the account the tokens are arthorized by');
+      assert.equal(log2.args.spender, spendingAccount, 'logs the account the tokens are authorized to');
+      assert.equal(log2.args.value.toNumber(), 15, 'logs the transfer amount');
+
+      const balance = await this.token.balanceOf(fromAccount);
+      assert.equal(balance.toNumber(), 90, 'deducted the amount from the sending account');
+
+      const allowance = await this.token.allowance(fromAccount, spendingAccount);
+      assert.equal(allowance.toNumber(), 15, 'deducted the amount from allowance');
+
+      const toBalance = await this.token.balanceOf(toAccount);
+      assert.equal(toBalance.toNumber(), 10, 'adds the amount to the receiving account');
+    });
   });
 });
