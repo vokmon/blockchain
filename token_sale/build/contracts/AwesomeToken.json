@@ -311,7 +311,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 37,
-        "sourceUnit": 647,
+        "sourceUnit": 706,
         "src": "36:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -322,7 +322,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 37,
-        "sourceUnit": 705,
+        "sourceUnit": 764,
         "src": "101:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -336,10 +336,10 @@
               "id": 4,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 646,
+              "referencedDeclaration": 705,
               "src": "388:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$646",
+                "typeIdentifier": "t_contract$_ERC20_$705",
                 "typeString": "contract ERC20"
               }
             },
@@ -354,10 +354,10 @@
               "id": 6,
               "name": "ERC20Detailed",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 704,
+              "referencedDeclaration": 763,
               "src": "395:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Detailed_$704",
+                "typeIdentifier": "t_contract$_ERC20Detailed_$763",
                 "typeString": "contract ERC20Detailed"
               }
             },
@@ -367,9 +367,9 @@
           }
         ],
         "contractDependencies": [
-          646,
-          704,
-          773
+          705,
+          763,
+          832
         ],
         "contractKind": "contract",
         "documentation": "This token extends ERC20 from openzeppelin.\r\nSo we get the mandatory implementation for free\r\ne.g. totalSupply but we need to set the initial value in the constructor\r",
@@ -377,9 +377,9 @@
         "id": 36,
         "linearizedBaseContracts": [
           36,
-          704,
-          646,
-          773
+          763,
+          705,
+          832
         ],
         "name": "AwesomeToken",
         "nodeType": "ContractDefinition",
@@ -531,7 +531,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 788,
+                          "referencedDeclaration": 847,
                           "src": "842:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -583,7 +583,7 @@
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 811,
+                        "referencedDeclaration": 870,
                         "src": "830:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_super$_AwesomeToken_$36",
@@ -597,7 +597,7 @@
                       "lValueRequested": false,
                       "memberName": "_mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 532,
+                      "referencedDeclaration": 591,
                       "src": "830:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -678,10 +678,10 @@
                   "name": "ERC20Detailed",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 704,
+                  "referencedDeclaration": 763,
                   "src": "699:13:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_ERC20Detailed_$704_$",
+                    "typeIdentifier": "t_type$_t_contract$_ERC20Detailed_$763_$",
                     "typeString": "type(contract ERC20Detailed)"
                   }
                 },
@@ -773,7 +773,7 @@
         "id": 2,
         "nodeType": "ImportDirective",
         "scope": 37,
-        "sourceUnit": 647,
+        "sourceUnit": 706,
         "src": "36:63:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -784,7 +784,7 @@
         "id": 3,
         "nodeType": "ImportDirective",
         "scope": 37,
-        "sourceUnit": 705,
+        "sourceUnit": 764,
         "src": "101:71:0",
         "symbolAliases": [],
         "unitAlias": ""
@@ -798,10 +798,10 @@
               "id": 4,
               "name": "ERC20",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 646,
+              "referencedDeclaration": 705,
               "src": "388:5:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20_$646",
+                "typeIdentifier": "t_contract$_ERC20_$705",
                 "typeString": "contract ERC20"
               }
             },
@@ -816,10 +816,10 @@
               "id": 6,
               "name": "ERC20Detailed",
               "nodeType": "UserDefinedTypeName",
-              "referencedDeclaration": 704,
+              "referencedDeclaration": 763,
               "src": "395:13:0",
               "typeDescriptions": {
-                "typeIdentifier": "t_contract$_ERC20Detailed_$704",
+                "typeIdentifier": "t_contract$_ERC20Detailed_$763",
                 "typeString": "contract ERC20Detailed"
               }
             },
@@ -829,9 +829,9 @@
           }
         ],
         "contractDependencies": [
-          646,
-          704,
-          773
+          705,
+          763,
+          832
         ],
         "contractKind": "contract",
         "documentation": "This token extends ERC20 from openzeppelin.\r\nSo we get the mandatory implementation for free\r\ne.g. totalSupply but we need to set the initial value in the constructor\r",
@@ -839,9 +839,9 @@
         "id": 36,
         "linearizedBaseContracts": [
           36,
-          704,
-          646,
-          773
+          763,
+          705,
+          832
         ],
         "name": "AwesomeToken",
         "nodeType": "ContractDefinition",
@@ -993,7 +993,7 @@
                           "name": "msg",
                           "nodeType": "Identifier",
                           "overloadedDeclarations": [],
-                          "referencedDeclaration": 788,
+                          "referencedDeclaration": 847,
                           "src": "842:3:0",
                           "typeDescriptions": {
                             "typeIdentifier": "t_magic_message",
@@ -1045,7 +1045,7 @@
                         "name": "super",
                         "nodeType": "Identifier",
                         "overloadedDeclarations": [],
-                        "referencedDeclaration": 811,
+                        "referencedDeclaration": 870,
                         "src": "830:5:0",
                         "typeDescriptions": {
                           "typeIdentifier": "t_super$_AwesomeToken_$36",
@@ -1059,7 +1059,7 @@
                       "lValueRequested": false,
                       "memberName": "_mint",
                       "nodeType": "MemberAccess",
-                      "referencedDeclaration": 532,
+                      "referencedDeclaration": 591,
                       "src": "830:11:0",
                       "typeDescriptions": {
                         "typeIdentifier": "t_function_internal_nonpayable$_t_address_$_t_uint256_$returns$__$",
@@ -1140,10 +1140,10 @@
                   "name": "ERC20Detailed",
                   "nodeType": "Identifier",
                   "overloadedDeclarations": [],
-                  "referencedDeclaration": 704,
+                  "referencedDeclaration": 763,
                   "src": "699:13:0",
                   "typeDescriptions": {
-                    "typeIdentifier": "t_type$_t_contract$_ERC20Detailed_$704_$",
+                    "typeIdentifier": "t_type$_t_contract$_ERC20Detailed_$763_$",
                     "typeString": "type(contract ERC20Detailed)"
                   }
                 },
@@ -1260,12 +1260,12 @@
         }
       },
       "links": {},
-      "address": "0xFB1EDCD769Ae2230F30642dF28b500d08B83108A",
-      "transactionHash": "0xabf812c687593f54473c033abbac02ff5f8a22a61e81621897690b3747f376ba"
+      "address": "0x5c192d65Ae44448C007089350F5d3581912166D6",
+      "transactionHash": "0x493d28c6628dacd9db7ab763245b78da4c814ad201bd3dedf944b3cec2735c46"
     }
   },
   "schemaVersion": "3.0.10",
-  "updatedAt": "2019-06-15T08:37:07.916Z",
+  "updatedAt": "2019-06-15T13:38:46.285Z",
   "devdoc": {
     "methods": {
       "allowance(address,address)": {

@@ -34,6 +34,7 @@ contract('AwesomeToken', (accounts) => {
     it('transfers token ownership', async() => {
       try {
         const result = await this.token.transfer(accounts[1], 99999999999);
+        const e = assert.throws();
       }
       catch(error) {
         assert(error.message.indexOf('revert')>=0, 'error message must contain revert');
@@ -99,7 +100,7 @@ contract('AwesomeToken', (accounts) => {
       try {
         // Try transferring something larger than the sender's balance
         await this.token.transferFrom(fromAccount, toAccount, 9999, {from: spendingAccount});
-        assert.fail;
+        assert.throws();
       }
       catch(error) {
         assert(error.message.indexOf('revert')>=0, 'error message must contain revert');
@@ -108,7 +109,7 @@ contract('AwesomeToken', (accounts) => {
       try {
         // Try transferring something larger than the approved amount
         await this.token.transferFrom(fromAccount, toAccount, 30, {from: spendingAccount});
-        assert.fail;
+        assert.throws();
       }
       catch(error) {
         assert(error.message.indexOf('revert')>=0, 'error message must contain revert');
