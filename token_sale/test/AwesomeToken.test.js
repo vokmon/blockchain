@@ -7,8 +7,8 @@ contract('AwesomeToken', (accounts) => {
   })
 
   describe('token attributes', async () => {
-    const _name = 'Awesome Token';
-    const _symbol = 'AWT';
+    const _name = 'My Token';
+    const _symbol = 'MTK';
     const _decimals = 18;
     const _totalSupply = 1000000;
 

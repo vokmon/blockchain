@@ -29,3 +29,13 @@ balance = await mtk.balanceOf('0x0CB3913eA495d1D8974B745a62F787785b1882a0')
 
 balance = await mtk.balanceOf('0x67Fd6AB62518703e0CE2A9E1b44F256CdF40A3EE')
   balance.toNumber() ==> return 1
+
+
+https://www.npmjs.com/package/truffle-contract
+https://www.npmjs.com/package/web3
+
+
+..\node_modules\.bin\truffle console
+mtk = await AwesomeToken.deployed()
+await mtk.transfer('0x3d823a990165E1D2F8798d189D3DcCfb5aeF62B1', 750000, {from: '0xdB94fF405A5139AEb48877259B60d63Db08579ac'})
+balance = await mtk.balanceOf('0x3d823a990165E1D2F8798d189D3DcCfb5aeF62B1')

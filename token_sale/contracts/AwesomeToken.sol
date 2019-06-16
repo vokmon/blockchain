@@ -10,8 +10,8 @@ import 'openzeppelin-solidity/contracts/token/ERC20/ERC20Detailed.sol';
  */
 contract AwesomeToken is ERC20, ERC20Detailed {
 
-  string private _TOKEN_NAME = "Awesome Token";
-  string private _SYMBOL = "AWT";
+  string private _TOKEN_NAME = "My Token";
+  string private _SYMBOL = "MTK";
   uint8 private _DECIMALS = 18;
 
   // balance of token, who has token and how much
