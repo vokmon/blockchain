@@ -45,4 +45,21 @@ contract TokenSale {
     // Trigger Sell Event
     emit Sell(msg.sender, _numberOfTokens);
   }
+
+  // Ending Token sale
+  function endSale() public {
+    // Require admin
+    require(msg.sender == admin, 'Require admin to end the sale');
+
+    // Remaining token to admin
+    require(tokenContract.transfer(admin, tokenContract.balanceOf(address(this))), "Remaining token should return to admin");
+
+    // Destroy contract
+    // this does not work
+    // selfdestruct(admin);
+
+    // UPDATE: Let's not destroy the contract here
+    // Just transfer the balance to the admin
+    // Another way is to crete a 'hasEnd' flag and create a modifier
+  }
 }

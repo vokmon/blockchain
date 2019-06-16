@@ -70,4 +70,25 @@ contract('TokenSale', (accounts) => {
     assert.equal(b3.toNumber(), reamingBalance, 'Token sale contract remain unchanged');
 
   });
+
+  it('ends token sales', async () => {
+    try {
+      // Try to end sale from account other than admin
+      await this.tokenSale.endSale({from: this.buyer});
+      assert.throws();
+    }
+    catch (e) {
+      assert(e.message.indexOf('revert')>=0, 'error message must contain revert', 'only admin can end the sale');
+    }
+
+    // End sale as admin
+    const receipt = await this.tokenSale.endSale({from: this.admin});
+
+    const balance = await this.token.balanceOf(this.admin);
+    // 999990 because 10 tokens were sold in the previous test
+    assert.equal(balance.toNumber(), 999990, 'returns all unsold token to admin');
+
+    const tokenSaleBalance = await this.token.balanceOf(this.tokenSale.address);
+    assert.equal(tokenSaleBalance.toNumber(), 0, 'TokenSale holds no token');
+  });
 });
