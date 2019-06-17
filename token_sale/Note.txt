@@ -39,3 +39,22 @@ https://www.npmjs.com/package/web3
 mtk = await AwesomeToken.deployed()
 await mtk.transfer('0x3d823a990165E1D2F8798d189D3DcCfb5aeF62B1', 750000, {from: '0xdB94fF405A5139AEb48877259B60d63Db08579ac'})
 balance = await mtk.balanceOf('0x3d823a990165E1D2F8798d189D3DcCfb5aeF62B1')
+
+
+
+Deploy and run on test network by using GETH
+https://github.com/ethereum/go-ethereum/wiki
+
+Debug
+https://www.trufflesuite.com/docs/truffle/getting-started/debugging-your-contracts
+
+Deploy web asset on github
+make a directory 'docs'
+create deployfrontend.sh
+
+use git bash to execute the shell script
+/F/projects/blockchain/blockchain/token_sale
+
+git add deployfrontend.sh
+git update-index add --chmod=+x 'deployfrontend.sh'
+./deployfrontend.sh
